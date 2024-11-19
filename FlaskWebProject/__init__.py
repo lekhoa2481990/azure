@@ -16,4 +16,8 @@ db = SQLAlchemy(app)
 login = LoginManager(app)
 login.login_view = 'login'
 
+streamHandler = logging.StreamHandler()
+streamHandler.setLevel(logging.WARNING)
+app.logger.addHandler(streamHandler)
+
 import FlaskWebProject.views
