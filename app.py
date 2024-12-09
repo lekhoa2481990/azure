@@ -7,7 +7,7 @@ import requests
 import json
 from feedgen.feed import FeedGenerator
 from flask import make_response
-from urllib.parse import urljoin
+# from urllib.parse import urljoin
 from werkzeug.contrib.atom import AtomFeed
 from os import environ
 
@@ -16,10 +16,9 @@ Bootstrap(app)
 
 
 
-def get_abs_url(url):
-    """ Returns absolute url by joining post url with base url """
-    return urljoin(request.url_root, url)
-
+# def get_abs_url(url):
+#     """ Returns absolute url by joining post url with base url """
+#     return urljoin(request.url_root, url
 
 @app.route('/feeds/')
 def feeds():
@@ -138,12 +137,12 @@ def delete_ad_request(id):
         return redirect(url_for('home'))
 
 # running app
-# def main():
-#     print(' ----->>>> Flask Python Application running in development server')
-#     app.run(host=settings.SERVER_HOST, port=settings.SERVER_PORT, debug=settings.FLASK_DEBUG)
+def main():
+    print(' ----->>>> Flask Python Application running in development server')
+    app.run(host=settings.SERVER_HOST, port=settings.SERVER_PORT, debug=settings.FLASK_DEBUG)
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
 
 
 
@@ -157,8 +156,8 @@ def delete_ad_request(id):
 #     app.run(HOST, PORT, debug=settings.FLASK_DEBUG)
 
 
-def main():
-    app.run(host='0.0.0.0', debug=True)
+# def main():
+#     app.run(host='0.0.0.0', debug=True)
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
