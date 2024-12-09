@@ -5,20 +5,20 @@ from flask_bootstrap import Bootstrap
 import settings
 import requests
 import json
-from feedgen.feed import FeedGenerator
+# from feedgen.feed import FeedGenerator
 from flask import make_response
-from urllib.parse import urljoin
+# from urllib.parse import urljoin
 from werkzeug.contrib.atom import AtomFeed
+from os import environ
 
 app = Flask(__name__)
 Bootstrap(app)
 
 
 
-def get_abs_url(url):
-    """ Returns absolute url by joining post url with base url """
-    return urljoin(request.url_root, url)
-
+# def get_abs_url(url):
+#     """ Returns absolute url by joining post url with base url """
+#     return urljoin(request.url_root, url
 
 @app.route('/feeds/')
 def feeds():
@@ -41,32 +41,39 @@ def feeds():
     # return feed.get_response()
 
 
-@app.route('/rss')
-def rss():
-    fg = FeedGenerator()
-    fg.title('Feed title')
-    fg.description('Feed Description')
-    fg.link(href='https://neighborly-client-v1.azurewebsites.net/')
+# @app.route('/rss')
+# def rss():
+#     fg = FeedGenerator()
+#     fg.title('Feed title')
+#     fg.description('Feed Description')
+#     fg.link(href='https://neighborly-client-v1.azurewebsites.net/')
     
 
-    response = requests.get(settings.API_URL + '/getAdvertisements')
-    ads = response.json()
+#     response = requests.get(settings.API_URL + '/getAdvertisements')
+#     ads = response.json()
 
-    for a in ads: 
-        fe = fg.add_entry()
-        fe.title(a.title)
-        fe.description(a.description)
+#     for a in ads: 
+#         fe = fg.add_entry()
+#         fe.title(a.title)
+#         fe.description(a.description)
 
-    response = make_response(fg.rss_str())
-    response.headers.set('Content-Type', 'application/rss+xml')
-    return response
+#     response = make_response(fg.rss_str())
+#     response.headers.set('Content-Type', 'application/rss+xml')
+#     return response
 
 @app.route('/')
 def home():
     response = requests.get(settings.API_URL + '/getAdvertisements')
+    ads = response.json()
+
+    # for key, value in ads.items():
+    #     print(" getAdvertisements key,value: " + key + ", " + value)
+
+    # print("getAdvertisements: " + ads.items) 
+
     response2 = requests.get(settings.API_URL + '/getPosts')
 
-    ads = response.json()
+    
     posts = response2.json()
     return render_template("index.html", ads=ads, posts=posts)
 
@@ -134,6 +141,23 @@ def main():
     print(' ----->>>> Flask Python Application running in development server')
     app.run(host=settings.SERVER_HOST, port=settings.SERVER_PORT, debug=settings.FLASK_DEBUG)
 
-
 if __name__ == '__main__':
     main()
+
+
+
+
+# if __name__ == '__main__':
+#     HOST = environ.get('SERVER_HOST', 'localhost')
+#     try:
+#         PORT = int(environ.get('SERVER_PORT', '8000'))
+#     except ValueError:
+#         PORT = 8000
+#     app.run(HOST, PORT, debug=settings.FLASK_DEBUG)
+
+
+# def main():
+#     app.run(host='0.0.0.0', debug=True)
+
+# if __name__ == '__main__':
+#     main()
