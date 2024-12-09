@@ -1,16 +1,18 @@
-{
-  "IsEncrypted": true,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "CfDJ8KvJ6DmYyMJCgkPKMHi9yggxobSNL+EiBudqjTbkN08MV8FPGx7WqKyJXi1vK5/3O48YnxQvGjJtBiH2gbzh8qUxrA2On+1JRf1xQeWwdKwATocSwT1CMT9SN2gtzXs0ZQ=="
-  },
-  "ConnectionStrings": {},
-  "AzureWebJobsStorage": ""
-}
+
 // {
-//   "IsEncrypted": true,
+//   "IsEncrypted": false,
 //   "Values": {
-//     "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=user187903storageaccount;AccountKey=p/tLyq4vjxrQB78dJPEI6+3+bbYdA54vzFr39VV1I8vf3rIjrEaNohTS0rHS9K6XiYfRYh3ZjUoP+AStJRuAfA==",
-//     "FUNCTIONS_WORKER_RUNTIME": "python",
-//     "FUNCTIONS_EXTENSION_VERSION": "~3"
+//     "AzureWebJobsStorage": "",
+//     "FUNCTIONS_WORKER_RUNTIME": "python"
 //   }
 // }
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=storageaccount241206;AccountKey=JZzZthyc2JLnLONaNqm8YLFPS63eU1Zb7uk5bCt2emV7zb7PeRl51T6AU3SbexOxfdH3zfmw6u3b+AStezVqqA==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "FUNCTIONS_EXTENSION_VERSION": "~3",
+    "MyDbConnection": "mongodb://khoalnn:ON2UmYZ9q7LeIoWkl5NlpBLfO7v1T4lRwxRLiqWcSdfTI8y3YRKHO0Z8Jts5pO6kYdDwwiV0lNoEACDbYcHshg==@khoalnn.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@khoalnn@"
+  }
+}
+
